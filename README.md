@@ -1,1 +1,1 @@
-# Image-Processing-Kits
+# Image-Processing-Kits## Runtime Environment```Windows 8 + VS 2012 + Qt 5.4```## LicenseMIT
