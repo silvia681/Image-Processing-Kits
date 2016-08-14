@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>857</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>10</y>
+      <width>341</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Original Image</string>
+    </property>
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>300</width>
+       <height>300</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGraphicsView" name="Hist">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>340</y>
+       <width>300</width>
+       <height>161</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSlider" name="slider">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>505</y>
+       <width>300</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>299</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>10</y>
+      <width>341</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Processed Image</string>
+    </property>
+    <widget class="QGraphicsView" name="graphicsView2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>300</width>
+       <height>300</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QGraphicsView" name="Hist1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>340</y>
+       <width>300</width>
+       <height>161</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>504</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>switch</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>504</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>step</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>857</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile_F">
+    <property name="title">
+     <string>File(&amp;F)</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_all"/>
+    <addaction name="actionExit"/>
+    <addaction name="separator"/>
+    <addaction name="actionNew_project"/>
+   </widget>
+   <widget class="QMenu" name="menuOperation">
+    <property name="title">
+     <string>Operation</string>
+    </property>
+    <widget class="QMenu" name="menuThreshold">
+     <property name="title">
+      <string>thresholding</string>
+     </property>
+     <addaction name="actionManual"/>
+     <addaction name="actionOtsu"/>
+     <addaction name="actionEntropy"/>
+    </widget>
+    <widget class="QMenu" name="menuEdge_detection">
+     <property name="title">
+      <string>edge detection</string>
+     </property>
+     <widget class="QMenu" name="menuRoberts">
+      <property name="title">
+       <string>Roberts</string>
+      </property>
+      <addaction name="actionGx"/>
+      <addaction name="actionGy"/>
+     </widget>
+     <widget class="QMenu" name="menuPrewitt">
+      <property name="title">
+       <string>Prewitt</string>
+      </property>
+      <addaction name="actionGx_2"/>
+      <addaction name="actionGy_2"/>
+     </widget>
+     <widget class="QMenu" name="menuSobel">
+      <property name="title">
+       <string>Sobel</string>
+      </property>
+      <addaction name="actionGx_3"/>
+      <addaction name="actionGy_3"/>
+     </widget>
+     <addaction name="menuRoberts"/>
+     <addaction name="menuPrewitt"/>
+     <addaction name="menuSobel"/>
+    </widget>
+    <widget class="QMenu" name="menuNoise_reduction">
+     <property name="title">
+      <string>noise reduction</string>
+     </property>
+     <widget class="QMenu" name="menuGaussian">
+      <property name="title">
+       <string>Gaussian</string>
+      </property>
+      <addaction name="action3x3"/>
+      <addaction name="action5x5"/>
+     </widget>
+     <addaction name="menuGaussian"/>
+     <addaction name="actionMedian"/>
+    </widget>
+    <widget class="QMenu" name="menuDilation">
+     <property name="title">
+      <string>binary dilation</string>
+     </property>
+     <addaction name="action3x3_input"/>
+     <addaction name="actionCircle"/>
+    </widget>
+    <widget class="QMenu" name="menuErosion">
+     <property name="title">
+      <string>binary erosion</string>
+     </property>
+     <addaction name="action3x3_input_2"/>
+     <addaction name="actionCircle_input"/>
+    </widget>
+    <widget class="QMenu" name="menuOpening">
+     <property name="title">
+      <string>binary opening</string>
+     </property>
+     <addaction name="action3x3_input_3"/>
+     <addaction name="actionCircle_2"/>
+    </widget>
+    <widget class="QMenu" name="menuClosing">
+     <property name="title">
+      <string>binary closing</string>
+     </property>
+     <addaction name="action3x3_input_4"/>
+     <addaction name="actionCircle_input_2"/>
+    </widget>
+    <widget class="QMenu" name="menuDistance_transform">
+     <property name="title">
+      <string>distance transform</string>
+     </property>
+     <addaction name="actionChessboard"/>
+     <addaction name="actionCity_block"/>
+    </widget>
+    <widget class="QMenu" name="menuSkeleton">
+     <property name="title">
+      <string>skeleton</string>
+     </property>
+     <addaction name="actionChessboard_2"/>
+     <addaction name="actionCity_block_2"/>
+     <addaction name="separator"/>
+     <addaction name="actionRestoration"/>
+    </widget>
+    <widget class="QMenu" name="menuGrayscale_dilation">
+     <property name="title">
+      <string>grayscale dilation</string>
+     </property>
+     <addaction name="action3x3_2"/>
+     <addaction name="actionSquare"/>
+    </widget>
+    <widget class="QMenu" name="menuGrayscale_erosion">
+     <property name="title">
+      <string>grayscale erosion</string>
+     </property>
+     <addaction name="action3x3_3"/>
+     <addaction name="actionSquare_2"/>
+    </widget>
+    <widget class="QMenu" name="menuGrayscale_opening">
+     <property name="title">
+      <string>grayscale opening</string>
+     </property>
+     <addaction name="action3x3_4"/>
+     <addaction name="actionSquare_3"/>
+    </widget>
+    <widget class="QMenu" name="menuGrayscale_closing">
+     <property name="title">
+      <string>grayscale closing</string>
+     </property>
+     <addaction name="action3x3_5"/>
+     <addaction name="actionSquare_4"/>
+    </widget>
+    <widget class="QMenu" name="menuMorphological_edge">
+     <property name="title">
+      <string>morphological edge</string>
+     </property>
+     <addaction name="actionStandard"/>
+     <addaction name="actionExternal"/>
+     <addaction name="actionInternal"/>
+    </widget>
+    <widget class="QMenu" name="menuGradient">
+     <property name="title">
+      <string>gradient</string>
+     </property>
+     <addaction name="actionStandard_2"/>
+     <addaction name="actionExternal_2"/>
+     <addaction name="actionInternal_2"/>
+    </widget>
+    <widget class="QMenu" name="menuGrayscale_reconstruction">
+     <property name="title">
+      <string>grayscale reconstruction</string>
+     </property>
+     <addaction name="actionOBR"/>
+     <addaction name="actionCBR"/>
+    </widget>
+    <addaction name="menuThreshold"/>
+    <addaction name="separator"/>
+    <addaction name="menuEdge_detection"/>
+    <addaction name="menuNoise_reduction"/>
+    <addaction name="separator"/>
+    <addaction name="menuDilation"/>
+    <addaction name="menuErosion"/>
+    <addaction name="menuOpening"/>
+    <addaction name="menuClosing"/>
+    <addaction name="separator"/>
+    <addaction name="menuDistance_transform"/>
+    <addaction name="menuSkeleton"/>
+    <addaction name="separator"/>
+    <addaction name="menuGrayscale_dilation"/>
+    <addaction name="menuGrayscale_erosion"/>
+    <addaction name="menuGrayscale_opening"/>
+    <addaction name="menuGrayscale_closing"/>
+    <addaction name="separator"/>
+    <addaction name="menuMorphological_edge"/>
+    <addaction name="menuGradient"/>
+    <addaction name="actionConditional_dilation"/>
+    <addaction name="menuGrayscale_reconstruction"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionCopyright"/>
+    <addaction name="actionDiscription"/>
+   </widget>
+   <addaction name="menuFile_F"/>
+   <addaction name="menuOperation"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_all">
+   <property name="text">
+    <string>Save all</string>
+   </property>
+  </action>
+  <action name="actionNew_project">
+   <property name="text">
+    <string>New project</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionManual">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>manual</string>
+   </property>
+  </action>
+  <action name="actionOtsu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>otsu</string>
+   </property>
+  </action>
+  <action name="actionEntropy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>entropy</string>
+   </property>
+  </action>
+  <action name="actionCopyright">
+   <property name="text">
+    <string>copyright</string>
+   </property>
+  </action>
+  <action name="actionDiscription">
+   <property name="text">
+    <string>discription</string>
+   </property>
+  </action>
+  <action name="actionGx">
+   <property name="text">
+    <string>Gx</string>
+   </property>
+  </action>
+  <action name="actionGy">
+   <property name="text">
+    <string>Gy</string>
+   </property>
+  </action>
+  <action name="actionGx_2">
+   <property name="text">
+    <string>Gx</string>
+   </property>
+  </action>
+  <action name="actionGy_2">
+   <property name="text">
+    <string>Gy</string>
+   </property>
+  </action>
+  <action name="actionGx_3">
+   <property name="text">
+    <string>Gx</string>
+   </property>
+  </action>
+  <action name="actionGy_3">
+   <property name="text">
+    <string>Gy</string>
+   </property>
+  </action>
+  <action name="actionMedian">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="action3x3">
+   <property name="text">
+    <string>3x3(delta=1)</string>
+   </property>
+  </action>
+  <action name="action5x5">
+   <property name="text">
+    <string>5x5(delta=1)</string>
+   </property>
+  </action>
+  <action name="action3x3_input">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionCircle">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="action3x3_input_2">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionCircle_input">
+   <property name="text">
+    <string>circle</string>
+   </property>
+  </action>
+  <action name="action3x3_input_3">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionCircle_2">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="action3x3_input_4">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionCircle_input_2">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="actionChessboard">
+   <property name="text">
+    <string>chessboard</string>
+   </property>
+  </action>
+  <action name="actionCity_block">
+   <property name="text">
+    <string>city block</string>
+   </property>
+  </action>
+  <action name="actionChessboard_2">
+   <property name="text">
+    <string>chessboard</string>
+   </property>
+  </action>
+  <action name="actionCity_block_2">
+   <property name="text">
+    <string>city block</string>
+   </property>
+  </action>
+  <action name="actionRestoration">
+   <property name="text">
+    <string>restoration</string>
+   </property>
+  </action>
+  <action name="action3x3_2">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionSquare">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="action3x3_3">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionSquare_2">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="action3x3_4">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionSquare_3">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="action3x3_5">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="actionSquare_4">
+   <property name="text">
+    <string>square</string>
+   </property>
+  </action>
+  <action name="actionStandard">
+   <property name="text">
+    <string>standard</string>
+   </property>
+  </action>
+  <action name="actionExternal">
+   <property name="text">
+    <string>external</string>
+   </property>
+  </action>
+  <action name="actionInternal">
+   <property name="text">
+    <string>internal</string>
+   </property>
+  </action>
+  <action name="actionStandard_2">
+   <property name="text">
+    <string>standard</string>
+   </property>
+  </action>
+  <action name="actionExternal_2">
+   <property name="text">
+    <string>external</string>
+   </property>
+  </action>
+  <action name="actionInternal_2">
+   <property name="text">
+    <string>internal</string>
+   </property>
+  </action>
+  <action name="actionConditional_dilation">
+   <property name="text">
+    <string>conditional dilation</string>
+   </property>
+  </action>
+  <action name="actionOBR">
+   <property name="text">
+    <string>OBR</string>
+   </property>
+  </action>
+  <action name="actionCBR">
+   <property name="text">
+    <string>CBR</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
